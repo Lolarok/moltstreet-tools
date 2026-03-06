@@ -1,3 +1,48 @@
+#!/usr/bin/env python3
+"""MoltStreet Crypto Alpha Hunter v1.0
+github.com/Lolarok/moltstreet-tools/crypto-signals
+Usage: python3 crypto_alpha_hunter.py [--top N] [--sector perp|rwa|ai|l2|defi|infra] [--email] [--json]
+"""
+import os, json, time, argparse, smtplib
+from datetime import datetime
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from urllib.request import urlopen, Request
+
+SECTORS={
+ "perp":["hyperliquid","gmx","dydx","vertex","aevo","drift","jupiter","gains"],
+ "rwa":["ondo","maple","centrifuge","superstate","backed","clearpool","goldfinch"],
+ "ai":["bittensor","fetch-ai","singularitynet","allora","ritual","autonolas"],
+ "l2":["arbitrum","optimism","base","starknet","zksync","scroll","blast","taiko"],
+ "defi":["aave","uniswap","lido","eigenlayer","pendle","ethena","sky","morpho"],
+ "infra":["chainlink","pyth","wormhole","layerzero","axelar","hyperlane"],
+}
+W={"tvl30":0.25,"vol7":0.20,"github":0.15,"mcap_tvl":0.15,"age":0.10,"trend":0.15}
+
+def fetch(url,h=None,t=12):
+    try:
+        req=Request(url,headers=h or {"User-Agent":"MoltStreet/1.0"})
+        with urlopen(req,timeout=t) as r: return json.loads(r.read().decode())
+    except: return None
+
+def spct(n,o):
+    if not o or o==0: return 0.0
+    return ((n-o)/abs(o))*100
+
+def snorm(v,mn,mx):
+    if mx==mn: return 50.0
+    return max(0.0,min(100.0,(v-mn)/(mx-mn)*100))
+
+def fusd(n):
+    if n>=1e9: return f"${n/1e9:.2f}B"
+    if n>=1e6: return f"${n/1e6:.1f}M"
+    if n>=1e3: return f"${n/1e3:.0f}K"
+    return f"${n:.0f}"
+
+def cpct(p):
+    s="🚀" if p>50 else ("📈" if p>20 else ("↗" if p>0 else ("↘" if p>-20 else "📉")))
+    return f"{s}{'+' if p>0 else ''}{p:.1f}%"
+
 
 def get_protocols():
     print("  ⟳ DeFiLlama protocols...")
