@@ -1,43 +1,62 @@
-# MoltStreet Crypto Scanner
+# MoltStreet Tools
 
-Automated crypto early-detection toolkit. Runs daily via GitHub Actions — **100% free**.
+Crypto intelligence toolkit — automated scanners, signal engines, and content tools.
 
-## What It Does
+## Tools
 
-Every day at 07:00 UTC the scanner:
-1. Fetches live prices from **CoinGecko** (free API)
-2. Fetches TVL data from **DeFiLlama** (free API)
-3. Scores each project 0-100 with a multi-factor model
-4. Sends **email alerts** when signals appear
+### 🔬 Crypto Alpha Hunter (`crypto-signals/crypto_alpha_hunter.py`)
+Protocol scanner that scores DeFi projects by TVL growth, volume, GitHub activity, and market metrics. Supports sector filtering (perp, rwa, ai, l2, defi, infra).
 
-## Scoring Model
+```bash
+python3 crypto-signals/crypto_alpha_hunter.py --top 10 --email
+python3 crypto-signals/crypto_alpha_hunter.py --sector perp
+python3 crypto-signals/crypto_alpha_hunter.py --json
+```
 
-| Factor | Why |
-|--------|-----|
-| 7-day price momentum | Best predictor of near-term continuation |
-| ATH distance | Measures upside potential + value |
-| Volume/MCap ratio | Detects genuine interest vs ghost volume |
-| 30-day trend | Confirms sustained momentum |
-| TVL change (7d) | Measures real DeFi usage growth |
-| 24h momentum | Entry timing confirmation |
+### 📡 Crypto Signals v2 (`crypto-signals/crypto_signals.py`)
+Watchlist-based daily scanner. Scores 12 hand-picked projects using CoinGecko + DeFiLlama data. Sends email alerts on strong signals.
 
-**Score rating:** 78+ = STRONG BUY | 65+ = BUY WATCH | 50+ = MONITOR
+```bash
+python3 crypto-signals/crypto_signals.py
+MAIL_APPPASSWORD=your_pw python3 crypto-signals/crypto_signals.py
+```
+
+### 📰 RSS Aggregator (`rss-aggregator/rss_aggregator.py`)
+Fetches crypto news from RSS feeds, scores relevance, and auto-posts drafts to WordPress sites.
+
+```bash
+python3 rss-aggregator/rss_aggregator.py --site crypto --dry-run
+python3 rss-aggregator/rss_aggregator.py --site all --max 3
+```
 
 ## Setup
 
-1. Go to **Settings > Secrets > Actions** and add `MAIL_APPPASSWORD`
-2. GitHub Actions runs automatically every morning
-3. Or trigger manually from the **Actions** tab
+1. **No pip install needed** — all tools use Python stdlib only
+2. For email alerts: set `MAIL_APPPASSWORD` (see [docs/EMAIL_SETUP.md](docs/EMAIL_SETUP.md))
+3. For WordPress posting: configure `WP_SITES` in `rss-aggregator/rss_aggregator.py`
+4. GitHub Actions runs scanners daily (see `.github/workflows/`)
 
-## Run Locally
+## Architecture
 
-```bash
-MAIL_APPPASSWORD=your_password python crypto-signals/crypto_signals.py
+```
+moltstreet-tools/
+├── crypto-signals/
+│   ├── crypto_alpha_hunter.py   # DeFi protocol screener (sector-based)
+│   ├── crypto_signals.py        # Watchlist daily scanner
+│   └── README.md
+├── rss-aggregator/
+│   └── rss_aggregator.py        # RSS → WordPress auto-poster
+├── docs/
+│   ├── EMAIL_SETUP.md
+│   └── SETUP_GUIDE.md
+├── .github/workflows/
+│   └── daily-scans.yml          # Daily cron for scanners
+└── README.md
 ```
 
-## Cost: $0/month
+## Cost
 
-~15 min GitHub Actions per month (free tier: 2,000 min/month)
+$0/month — Python stdlib + free APIs (CoinGecko, DeFiLlama) + GitHub Actions free tier (2,000 min/month).
 
 ---
-*Not financial advice. DYOR. MoltStreet v2.0*
+*Not financial advice. DYOR. MoltStreet*
