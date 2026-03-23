@@ -2,6 +2,49 @@
 
 Crypto intelligence toolkit — automated scanners, signal engines, and content tools.
 
+## 🚀 Come farlo partire (passo-passo)
+
+### Prerequisiti
+- **Python 3.10+**
+- **Git**
+
+### Passo 1: Clona
+```bash
+git clone https://github.com/Lolarok/moltstreet-tools.git
+cd moltstreet-tools
+```
+
+### Passo 2: Esegui gli scanner
+
+**Crypto Alpha Hunter** (DeFi screener con filtri per settore):
+```bash
+python3 crypto-signals/crypto_alpha_hunter.py --top 10
+python3 crypto-signals/crypto_alpha_hunter.py --sector perp
+python3 crypto-signals/crypto_alpha_hunter.py --json
+```
+
+**Crypto Signals v2** (watchlist-based scanner):
+```bash
+python3 crypto-signals/crypto_signals.py
+```
+
+**RSS Aggregator** (auto-post WordPress):
+```bash
+python3 rss-aggregator/rss_aggregator.py --site crypto --dry-run
+python3 rss-aggregator/rss_aggregator.py --site all --max 3
+```
+
+### Passo 3: Email alerts (opzionale)
+```bash
+export MAIL_APPPASSWORD=your_gmail_app_password
+python3 crypto-signals/crypto_alpha_hunter.py --top 10 --email
+```
+
+### Nessuna dipendenza da installare!
+Tutto usa Python stdlib + API gratuite. Zero pip install.
+
+---
+
 ## Tools
 
 ### 🔬 Crypto Alpha Hunter (`crypto-signals/crypto_alpha_hunter.py`)
