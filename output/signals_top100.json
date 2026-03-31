@@ -1,0 +1,204 @@
+{
+  "version": "3.0",
+  "generated": "2026-03-31 09:27 UTC",
+  "count": 10,
+  "coins": [
+    {
+      "rank": 3,
+      "symbol": "USDT",
+      "name": "Tether",
+      "sector": "other",
+      "price": 0.999048,
+      "mcap": 184053282813,
+      "volume": 67706931753,
+      "p1h": -0.0011186325287188966,
+      "p24": -0.0098,
+      "p7": -0.06222012304174595,
+      "p30": -0.09630074260572184,
+      "ath_drop": -24.49142,
+      "score": 77.0,
+      "rating": "\u2b50 BUY WATCH",
+      "signals": [
+        "Vol/MC:0.37"
+      ]
+    },
+    {
+      "rank": 10,
+      "symbol": "DOGE",
+      "name": "Dogecoin",
+      "sector": "meme",
+      "price": 0.090238,
+      "mcap": 13887892512,
+      "volume": 974016693,
+      "p1h": -1.176882728493059,
+      "p24": -2.67632,
+      "p7": -5.138856049726563,
+      "p30": -4.925023033629351,
+      "ath_drop": -87.66531,
+      "score": 64.0,
+      "rating": "\ud83d\udc40 MONITOR",
+      "signals": [
+        "ATH-88%"
+      ]
+    },
+    {
+      "rank": 2,
+      "symbol": "ETH",
+      "name": "Ethereum",
+      "sector": "l1",
+      "price": 2025.75,
+      "mcap": 244856836790,
+      "volume": 16972057177,
+      "p1h": -1.3334774268053728,
+      "p24": -1.42052,
+      "p7": -5.966544287527698,
+      "p30": 0.9332776826884486,
+      "ath_drop": -59.04306,
+      "score": 62.0,
+      "rating": "\ud83d\udc40 MONITOR",
+      "signals": [
+        "\ud83d\udd25TRENDING"
+      ]
+    },
+    {
+      "rank": 8,
+      "symbol": "TRX",
+      "name": "TRON",
+      "sector": "other",
+      "price": 0.318359,
+      "mcap": 30170263192,
+      "volume": 624043398,
+      "p1h": -0.28634424543075926,
+      "p24": -1.13369,
+      "p7": 2.823251261103339,
+      "p30": 12.980706551674542,
+      "ath_drop": -26.1843,
+      "score": 60.0,
+      "rating": "\ud83d\udc40 MONITOR",
+      "signals": []
+    },
+    {
+      "rank": 7,
+      "symbol": "SOL",
+      "name": "Solana",
+      "sector": "l1",
+      "price": 81.82,
+      "mcap": 46919396222,
+      "volume": 3306085559,
+      "p1h": -1.5454432754662881,
+      "p24": -2.86281,
+      "p7": -10.69884502224634,
+      "p30": -4.025922487379281,
+      "ath_drop": -72.10479,
+      "score": 59.0,
+      "rating": "\ud83d\udc40 MONITOR",
+      "signals": [
+        "ATH-72%"
+      ]
+    },
+    {
+      "rank": 1,
+      "symbol": "BTC",
+      "name": "Bitcoin",
+      "sector": "l1",
+      "price": 66399,
+      "mcap": 1330915433920,
+      "volume": 45774812798,
+      "p1h": -1.2644929380731833,
+      "p24": -1.58337,
+      "p7": -6.382259486507771,
+      "p30": -1.0985177436295028,
+      "ath_drop": -47.33548,
+      "score": 57.0,
+      "rating": "\ud83d\udc40 MONITOR",
+      "signals": [
+        "\ud83d\udd25TRENDING"
+      ]
+    },
+    {
+      "rank": 6,
+      "symbol": "USDC",
+      "name": "USDC",
+      "sector": "other",
+      "price": 0.999675,
+      "mcap": 77332365261,
+      "volume": 9285071311,
+      "p1h": -0.0033988108868308656,
+      "p24": -0.00699,
+      "p7": -0.01963484938040845,
+      "p30": -0.03357611815666313,
+      "ath_drop": -4.19997,
+      "score": 56.0,
+      "rating": "\ud83d\udc40 MONITOR",
+      "signals": []
+    },
+    {
+      "rank": 4,
+      "symbol": "BNB",
+      "name": "BNB",
+      "sector": "other",
+      "price": 605.0,
+      "mcap": 82559515027,
+      "volume": 877532192,
+      "p1h": -0.7107347380943551,
+      "p24": -2.03203,
+      "p7": -4.661882444938733,
+      "p30": -3.26863466655275,
+      "ath_drop": -55.83915,
+      "score": 50.0,
+      "rating": "\ud83d\ude10 CAUTION",
+      "signals": []
+    },
+    {
+      "rank": 5,
+      "symbol": "XRP",
+      "name": "XRP",
+      "sector": "other",
+      "price": 1.31,
+      "mcap": 80439697652,
+      "volume": 1969007431,
+      "p1h": -0.7260486492389434,
+      "p24": -3.29971,
+      "p7": -7.510394555605651,
+      "p30": -4.998618638634804,
+      "ath_drop": -64.05744,
+      "score": 50.0,
+      "rating": "\ud83d\ude10 CAUTION",
+      "signals": []
+    },
+    {
+      "rank": 9,
+      "symbol": "FIGR_HELOC",
+      "name": "Figure Heloc",
+      "sector": "other",
+      "price": 1.012,
+      "mcap": 16454382242,
+      "volume": 925082732,
+      "p1h": 0,
+      "p24": 1.23627,
+      "p7": -1.6459272539714447,
+      "p30": -1.6177498847192335,
+      "ath_drop": -3.5035,
+      "score": 49.0,
+      "rating": "\ud83d\ude10 CAUTION",
+      "signals": []
+    }
+  ],
+  "sectors": {
+    "other": {
+      "count": 6,
+      "avg_score": 57.0,
+      "top": "USDT"
+    },
+    "meme": {
+      "count": 1,
+      "avg_score": 64.0,
+      "top": "DOGE"
+    },
+    "l1": {
+      "count": 3,
+      "avg_score": 59.3,
+      "top": "ETH"
+    }
+  }
+}

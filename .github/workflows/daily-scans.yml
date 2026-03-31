@@ -18,21 +18,23 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run Crypto Signals
+      - name: Run Crypto Signals v3 (Top 100)
         env:
           MAIL_APPPASSWORD: ${{ secrets.MAIL_APPPASSWORD }}
+          MOLTSTREET_TOP: "100"
+          MOLTSTREET_JSON: "1"
         run: python crypto-signals/crypto_signals.py
 
-      - name: Run Alpha Hunter
+      - name: Run Alpha Hunter (Top 50)
         env:
           Mail_apppassword: ${{ secrets.MAIL_APPPASSWORD }}
           ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
-        run: python crypto-signals/crypto_alpha_hunter.py --top 15 --email
+        run: python crypto-signals/crypto_alpha_hunter.py --top 50 --email
 
       - name: Commit reports
         run: |
           git config user.name "MoltStreet Bot"
           git config user.email "bot@moltstreet.dev"
           git add -A
-          git diff --staged --quiet || git commit -m "auto: daily scan $(date -u +%Y-%m-%d)"
+          git diff --staged --quiet || git commit -m "auto: daily scan $(date -u +%Y-%m-%d) top100"
           git push
