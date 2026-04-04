@@ -1,0 +1,2 @@
+# Zero external dependencies - uses Python standard library only
+# urllib, json, smtplib, datetime are all built-in to Python 3+
