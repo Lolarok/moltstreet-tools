@@ -1,0 +1,44 @@
+name: Lint Code
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 0 * * *'  # Daily at midnight UTC
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -e . -r requirements.txt
+
+      - name: Install linting tools
+        run: pip install black flake8 ruff isort mypy
+
+      - name: Run black check
+        run: black --check .
+
+      - name: Run flake8
+        run: flake8 --count --select=E9,F63,F7,F82 --show-source --statistics
+
+      - name: Run mypy
+        run: mypy crypto_signals/
+
+      - name: Run ruff
+        run: ruff crypto_signals/
+
+      - name: Run isort check
+        run: isort --profile black --check crypto_signals/
